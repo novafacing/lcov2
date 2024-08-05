@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.38"
+either = "1.13.0"
 markup = "0.15.0"
 petgraph = "0.6.5"
 thiserror = "1.0.63"
