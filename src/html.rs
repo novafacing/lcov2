@@ -402,13 +402,13 @@ define! {
                 @head
                 @Style {}
                 meta[charse = "utf-8"];
-                title { "TSFFS Coverage Report" }
+                title { "Coverage Report" }
             }
             body {
                 table[width = "100%", style = "border-collapse: collapse;"] {
                     tr[style = "text-align: center; border-bottom: 1px solid black;"] {
                         td {
-                            "TSFFS Code Coverage Report"
+                            "Code Coverage Report"
                         }
                     }
                     tr[style = "border-bottom: 1px solid black;"] {

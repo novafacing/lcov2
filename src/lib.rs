@@ -1,4 +1,52 @@
 //! A library for generating and writing LCOV files, and converting them to HTML format.
+//!
+//! # Examples
+//!
+//! ## Writing an LCOV file
+//!
+//! This example will write an info file with a single record for a test file with two lines
+//! and a single function. (imagine main() has a lot of empty space!)
+//!
+//! ```rust,ignore
+//! use lcov::{Records, Record};
+//! use std::fs::write;
+//!
+//! let mut records = Records::default();
+//! let test_record = records.get_or_insert_mut(Path::new("/path/to/test.c"));
+//! test_record.add_function_if_not_exists(1, 32, "main");
+//! test_record.increment_function_data("main");
+//! test_record.add_line_if_not_exists(1);
+//! test_record.add_line_if_not_exists(32);
+//! test_record.increment_line(1);
+//! test_record.increment_line(32);
+//! write("test.info", records.to_string()).unwrap();
+//! ```
+//!
+//! ## Reading an LCOV file
+//!
+//! This example will read an info file.
+//!
+//! ```rust,ignore
+//! use lcov::Records;
+//! use std::fs::read_to_string;
+//!
+//! let contents = read_to_string("test.info").unwrap();
+//! let records = Records::from_str(&contents).unwrap();
+//! ```
+//!
+//! ## Generating an HTML report
+//!
+//! This example will generate an HTML report from the records in a format that looks
+//! very much like LCOV style (not an exact match).
+//!
+//! ```rust,ignore
+//! use lcov::Records;
+//! use std::fs::{read_to_string, write};
+//!
+//! let contents = read_to_string("test.info").unwrap();
+//! let records = Records::from_str(&contents).unwrap();
+//! write("test.html", records.to_html().unwrap()).unwrap();
+//! ```
 
 use either::Either;
 use petgraph::{
