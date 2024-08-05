@@ -1,7 +1,15 @@
 [package]
 name = "lcov2"
 version = "0.1.0"
+authors = ["Rowan Hart <rowanbhart@gmail.com>"]
 edition = "2021"
+description = "Enhanced tools for working with LCOV format and generating HTML"
+documentation = "https://docs.rs/lcov2"
+readme = "README.md"
+homepage = "https://github.com/novafacing/lcov2"
+repository = "https://github.com/novafacing/lcov2"
+license = "Apache-2.0"
+keywords = ["lcov", "coverage", "html"]
 
 [dependencies]
 chrono = "0.4.38"
